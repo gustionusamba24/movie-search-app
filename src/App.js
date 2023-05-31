@@ -13,20 +13,23 @@ const App = () => {
 
   const PopularMovieList = () => {
     const imgUrl = process.env.REACT_APP_BASEIMGURL;
-    return popularMovies.map((movies, i) => {
-      return (
-        <div className="movie-wrapper" key={i}>
-          <div className="movie-title">{movies.title}</div>
-          <img
-            src={`${imgUrl}/${movies.poster_path}`}
-            alt="Movie Poster"
-            className="movie-image"
-          />
-          <div className="movie-date">{movies.release_date}</div>
-          <div className="movie-rating">{movies.vote_average}</div>
-        </div>
-      );
-    });
+    return (
+      popularMovies &&
+      popularMovies.map((movie, id) => {
+        return (
+          <div className="movie-wrapper" key={id}>
+            <div className="movie-title">{movie.title}</div>
+            <img
+              src={`${imgUrl}/${movie.poster_path}`}
+              alt="Movie Poster"
+              className="movie-image"
+            />
+            <div className="movie-date">{movie.release_date}</div>
+            <div className="movie-rating">{movie.vote_average}</div>
+          </div>
+        );
+      })
+    );
   };
 
   const search = async (q) => {
