@@ -13,9 +13,9 @@ const App = () => {
 
   const PopularMovieList = () => {
     const imgUrl = process.env.REACT_APP_BASEIMGURL;
-    return popularMovies.map((movie, id) => {
+    return popularMovies.map((movie, i) => {
       return (
-        <div className="movie-wrapper" key={id}>
+        <div className="movie-wrapper" key={i}>
           <div className="movie-title">{movie.title}</div>
           <img
             src={`${imgUrl}/${movie.poster_path}`}
